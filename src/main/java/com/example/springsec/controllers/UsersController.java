@@ -23,4 +23,10 @@ public class UsersController {
         return ResponseEntity.ok(usersService.save(user));
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody Users user){
+        String result = usersService.verify(user);
+        return ResponseEntity.ok(result);
+    }
+
 }
